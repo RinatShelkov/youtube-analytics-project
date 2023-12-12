@@ -1,0 +1,21 @@
+[tool.poetry]
+name = "youtube-analytics-project"
+version = "0.1.0"
+description = ""
+authors = ["kirillskyeng <kirill.netreba@skyeng.ru>"]
+readme = "README.md"
+packages = [{include = "youtube-analytics-project"}]
+
+[tool.poetry.dependencies]
+python = "^3.11"
+isodate = "^0.6.1"
+black = "^23.12.0"
+google-api-python-client = "^2.110.0"
+
+
+[tool.poetry.group.dev.dependencies]
+pytest-cov = "^4.1.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
