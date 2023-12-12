@@ -47,7 +47,3 @@ class Channel:
         """Выводит в консоль информацию о канале."""
 
         return pprint.pprint(Channel.youtube.channels().list(id=self.channel_id, part='snippet,statistics').execute())
-
-
-# data_channels = Channel.youtube.channels().list(id='UC-OVMPlMA3-YCIeg4z5z23A', part='statistics').execute()
-# pprint.pprint(data_channels)
