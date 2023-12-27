@@ -9,7 +9,7 @@ class NotFoundIdVideo(Exception):
     def __init__(self, length):
         self.length = length
         if length == 0:
-            self.message = 'Несуществующий ID- видео'
+            self.message = "Несуществующий ID- видео"
         # args[0] if args == 0 else 'Несуществующий ID- видео'
 
 
@@ -30,8 +30,10 @@ class Video:
 
         try:
             self.video_response = (
-                Video.youtube.videos().list(part="snippet,statistics,contentDetails,topicDetails",
-                                            id=video_id).execute())
+                Video.youtube.videos()
+                .list(part="snippet,statistics,contentDetails,topicDetails", id=video_id)
+                .execute()
+            )
             self.channel_id = self.video_response["items"][0]["snippet"]["channelId"]
             self.video_title = self.video_response["items"][0]["snippet"]["title"]  #
             self.view_count = self.video_response["items"][0]["statistics"]["viewCount"]  #
@@ -39,7 +41,7 @@ class Video:
             self.comment_count = self.video_response["items"][0]["statistics"]["commentCount"]
             self.url = "https://www.youtube.com/channel/" + self.channel_id + "/" + self.video_id
 
-        except Exception:
+        except IndexError:
             self.channel_id = None
             self.video_title = None
             self.view_count = None
