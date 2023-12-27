@@ -77,4 +77,3 @@ class PLVideo(Video):
         for playlist in self.playlist_videos["items"]:
             if playlist["contentDetails"]["videoId"] == self.video_id:
                 self.video_title = playlist["snippet"]["title"]
-
